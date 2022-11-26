@@ -25,3 +25,23 @@ document.querySelector('#form').addEventListener('submit',  function (e) {
             console.error('Error:', error);
         });
 })
+
+document.querySelector('#unload').addEventListener('click', function () {
+
+    document.querySelectorAll('.messages .alert').forEach(item => item.classList.add('d-none'))
+    
+    fetch('/actions/unload.php')
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.status === 'success') {
+                successMessage.classList.remove('d-none')
+                successMessage.innerHTML = data.message
+            } else {
+                errorMessage.classList.remove('d-none')
+                errorMessage.innerHTML = data.message
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+})
