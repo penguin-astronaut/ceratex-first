@@ -1,0 +1,6 @@
+{
+    "name": "penguin/pmt",
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
